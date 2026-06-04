@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio Dashboard — aswin draws</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/admin.css">
+</head>
+<body class="admin-body-page">
+
+<div class="admin-header" role="banner">
+  <div>
+    <p class="admin-logo">✦ aswin draws</p>
+    <p class="admin-subtitle">Studio Dashboard</p>
+  </div>
+  <div style="display:flex; gap:12px; align-items:center;">
+    <span class="admin-badge">Private</span>
+    <a href="../index.html" class="btn-secondary" target="_blank">Preview Site ↗</a>
+  </div>
+</div>
+
+<div class="admin-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="admin-sidebar" role="navigation" aria-label="Admin sections">
+    <p class="sidebar-label">Sections</p>
+    <button class="sidebar-item active" data-section="fundamentals" onclick="switchSection(this)">
+      <span class="sidebar-dot"></span>
+      <span>Art Fundamentals</span>
+      <span class="sidebar-count" id="count-fundamentals">0</span>
+    </button>
+    <button class="sidebar-item" data-section="environments" onclick="switchSection(this)">
+      <span class="sidebar-dot"></span>
+      <span>Environments</span>
+      <span class="sidebar-count" id="count-environments">0</span>
+    </button>
+    <button class="sidebar-item" data-section="characters" onclick="switchSection(this)">
+      <span class="sidebar-dot"></span>
+      <span>Characters</span>
+      <span class="sidebar-count" id="count-characters">0</span>
+    </button>
+    <button class="sidebar-item" data-section="fanarts" onclick="switchSection(this)">
+      <span class="sidebar-dot"></span>
+      <span>Fan Arts</span>
+      <span class="sidebar-count" id="count-fanarts">0</span>
+    </button>
+
+    <div class="sidebar-divider"></div>
+    <p class="sidebar-label">Help</p>
+    <div class="sidebar-help">
+      <p>After making changes, click <strong>Export data.js</strong> and replace <code>js/data.js</code> in your repo, then push to GitHub.</p>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="admin-main" role="main">
+
+    <div class="admin-section-header">
+      <h1 class="admin-section-title" id="admin-section-title">Art Fundamentals</h1>
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <button class="btn-export" onclick="exportData()">⬇ Export data.js</button>
+        <button class="btn-primary" onclick="document.getElementById('file-input').click()">+ Upload Artwork</button>
+      </div>
+    </div>
+
+    <!-- UPLOAD ZONE -->
+    <div class="upload-zone" id="upload-zone"
+         onclick="document.getElementById('file-input').click()"
+         ondragover="handleDragOver(event)"
+         ondragleave="handleDragLeave(event)"
+         ondrop="handleDrop(event)">
+      <div class="upload-icon" aria-hidden="true">☁</div>
+      <p class="upload-text">Drop your artwork here</p>
+      <p class="upload-sub">PNG, JPG, WEBP · Click or drag to upload · Multiple files OK</p>
+      <input type="file" id="file-input" accept="image/*" multiple style="display:none" onchange="handleFiles(event.target.files)">
+    </div>
+
+    <!-- EDIT MODAL -->
+    <div class="edit-modal" id="edit-modal" role="dialog" aria-modal="true" aria-label="Edit artwork">
+      <div class="edit-modal-inner">
+        <h2 class="edit-modal-title">Edit Artwork</h2>
+        <img class="edit-preview" id="edit-preview" src="" alt="">
+        <label class="field-label">Title</label>
+        <input type="text" class="field-input" id="edit-title" placeholder="e.g. Light & Shadow Study">
+        <label class="field-label">Medium / Year</label>
+        <input type="text" class="field-input" id="edit-meta" placeholder="e.g. Digital painting · 2024">
+        <label class="field-label">Section</label>
+        <select class="field-input" id="edit-section">
+          <option value="fundamentals">Art Fundamentals</option>
+          <option value="environments">Environment Concepts</option>
+          <option value="characters">Character Concepts</option>
+          <option value="fanarts">Fan Arts</option>
+        </select>
+        <div class="edit-featured-row">
+          <label class="toggle-label">
+            <input type="checkbox" id="edit-featured" class="toggle-check">
+            <span class="toggle-slider"></span>
+            Mark as Featured (shows large in gallery)
+          </label>
+        </div>
+        <div style="display:flex; gap:10px; margin-top:20px;">
+          <button class="btn-primary" onclick="saveEdit()">Save</button>
+          <button class="btn-secondary" onclick="closeEditModal()">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADMIN GRID -->
+    <div class="admin-grid" id="admin-grid">
+      <div class="admin-empty" id="admin-empty">
+        <p>No artwork yet in this section.</p>
+        <p style="font-size:13px; margin-top:6px;">Upload something above to get started ✦</p>
+      </div>
+    </div>
+
+    <!-- EXPORT INSTRUCTIONS -->
+    <div class="export-panel" id="export-panel" style="display:none;">
+      <h3 class="export-title">Your data.js</h3>
+      <p class="export-sub">Copy this, replace <code>js/data.js</code> in your repo, then <code>git push</code>.</p>
+      <textarea class="export-textarea" id="export-textarea" readonly></textarea>
+      <div style="display:flex; gap:10px; margin-top:12px;">
+        <button class="btn-primary" onclick="copyExport()">Copy to Clipboard</button>
+        <button class="btn-secondary" onclick="document.getElementById('export-panel').style.display='none'">Close</button>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="../js/data.js"></script>
+<script src="../js/admin.js"></script>
+</body>
+</html>
