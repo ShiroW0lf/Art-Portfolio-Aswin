@@ -16,13 +16,14 @@ const PORTFOLIO_DATA = {
     // }
   ],
   environments: [
-    // {
-    //  "id": "art_1780612662302_32th4",
-      "title": "IMG 0242",
+    
+    {
+      "id": "art_1780612662302_32th4",
+    "title": "IMG 0242",
       "meta": "Digital · 2024",
-      "image": "{images/IMG_0242.JPG",
-      "featured": true,
-    // }
+      "image": "images/IMG_0242.JPG",
+      "featured": true, }
+    
   ],
   characters: [
     // {
