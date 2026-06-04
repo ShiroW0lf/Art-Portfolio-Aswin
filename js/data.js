@@ -17,11 +17,11 @@ const PORTFOLIO_DATA = {
   ],
   environments: [
     // {
-    //   id: "e1",
-    //   title: "The Healing Forest",
-    //   meta: "Digital painting · 2024",
-    //   image: "images/environments/healing-forest.jpg",
-    //   featured: true
+    //  "id": "art_1780612662302_32th4",
+      "title": "IMG 0242",
+      "meta": "Digital · 2024",
+      "image": "images/fundamentals/art_1780612662302_32th4.jpg",
+      "featured": true,
     // }
   ],
   characters: [
