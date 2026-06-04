@@ -20,7 +20,7 @@ const PORTFOLIO_DATA = {
     //  "id": "art_1780612662302_32th4",
       "title": "IMG 0242",
       "meta": "Digital · 2024",
-      "image": "images/fundamentals/art_1780612662302_32th4.jpg",
+      "image": "{images/IMG_0242.JPG",
       "featured": true,
     // }
   ],
