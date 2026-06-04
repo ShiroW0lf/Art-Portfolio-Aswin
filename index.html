@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Aswin Draws — Art portfolio featuring fundamentals, environment concepts, character concepts, and fan arts.">
+<meta property="og:title" content="Aswin Draws — Art Portfolio">
+<meta property="og:description" content="A collection of illustrations, concepts, and worlds drawn from wonder.">
+<meta property="og:type" content="website">
+<title>Aswin Draws — Art Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <a href="index.html" class="nav-logo">✦ aswin draws</a>
+  <div class="nav-links">
+    <button class="nav-link" onclick="scrollToSection('sec-fundamentals', 'fundamentals')">Fundamentals</button>
+    <button class="nav-link" onclick="scrollToSection('sec-environments', 'environments')">Environments</button>
+    <button class="nav-link" onclick="scrollToSection('sec-characters', 'characters')">Characters</button>
+    <button class="nav-link" onclick="scrollToSection('sec-fanarts', 'fanarts')">Fan Arts</button>
+    <a href="https://instagram.com/aswin_draws" target="_blank" rel="noopener" class="nav-link insta-link" aria-label="Instagram @aswin_draws">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      @aswin_draws
+    </a>
+  </div>
+  <button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menu">&#9776;</button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <button class="nav-link" onclick="scrollToSection('sec-fundamentals','fundamentals'); closeMobileMenu()">Fundamentals</button>
+  <button class="nav-link" onclick="scrollToSection('sec-environments','environments'); closeMobileMenu()">Environments</button>
+  <button class="nav-link" onclick="scrollToSection('sec-characters','characters'); closeMobileMenu()">Characters</button>
+  <button class="nav-link" onclick="scrollToSection('sec-fanarts','fanarts'); closeMobileMenu()">Fan Arts</button>
+  <a href="https://instagram.com/aswin_draws" target="_blank" rel="noopener" class="nav-link insta-link">Instagram @aswin_draws</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" aria-label="Introduction">
+  <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+  <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+  <p class="hero-eyebrow">Art Portfolio</p>
+  <h1 class="hero-title">Where imagination<br>finds its breath</h1>
+  <p class="hero-subtitle">A collection of illustrations, concepts, and worlds drawn from wonder — healing through visual storytelling.</p>
+  <a href="https://instagram.com/aswin_draws" target="_blank" rel="noopener" class="hero-cta">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+    Follow on Instagram
+  </a>
+  <p class="hero-scroll" onclick="scrollToSection('sec-fundamentals', 'fundamentals')">Explore the gallery ↓</p>
+</section>
+
+<!-- STICKY SECTION TABS -->
+<div class="section-tabs" id="section-tabs" role="tablist" aria-label="Gallery sections">
+  <button class="section-tab active" role="tab" aria-selected="true" data-section="fundamentals" onclick="scrollToSection('sec-fundamentals', 'fundamentals')">Art Fundamentals</button>
+  <button class="section-tab" role="tab" aria-selected="false" data-section="environments" onclick="scrollToSection('sec-environments', 'environments')">Environment Concepts</button>
+  <button class="section-tab" role="tab" aria-selected="false" data-section="characters" onclick="scrollToSection('sec-characters', 'characters')">Character Concepts</button>
+  <button class="section-tab" role="tab" aria-selected="false" data-section="fanarts" onclick="scrollToSection('sec-fanarts', 'fanarts')">Fan Arts</button>
+</div>
+
+<main id="main-content">
+
+  <!-- ART FUNDAMENTALS -->
+  <section class="gallery-section" id="sec-fundamentals" data-name="fundamentals" aria-label="Art Fundamentals">
+    <div class="section-header">
+      <h2 class="section-title">Art Fundamentals</h2>
+      <p class="section-desc">Studies in light, form, perspective and colour — the building blocks of vision.</p>
+    </div>
+    <div class="gallery-grid" id="grid-fundamentals">
+      <!-- Populated by gallery.js from data.json -->
+      <div class="gallery-empty">
+        <p>Artwork coming soon ✦</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENVIRONMENT CONCEPTS -->
+  <section class="gallery-section" id="sec-environments" data-name="environments" aria-label="Environment Concepts">
+    <div class="section-header">
+      <h2 class="section-title">Environment Concepts</h2>
+      <p class="section-desc">Worlds waiting to be stepped into — from quiet forests to vast imagined landscapes.</p>
+    </div>
+    <div class="gallery-grid" id="grid-environments">
+      <div class="gallery-empty"><p>Artwork coming soon ✦</p></div>
+    </div>
+  </section>
+
+  <!-- CHARACTER CONCEPTS -->
+  <section class="gallery-section" id="sec-characters" data-name="characters" aria-label="Character Concepts">
+    <div class="section-header">
+      <h2 class="section-title">Character Concepts</h2>
+      <p class="section-desc">Figures with stories to tell — designed with soul and intention.</p>
+    </div>
+    <div class="gallery-grid" id="grid-characters">
+      <div class="gallery-empty"><p>Artwork coming soon ✦</p></div>
+    </div>
+  </section>
+
+  <!-- FAN ARTS -->
+  <section class="gallery-section" id="sec-fanarts" data-name="fanarts" aria-label="Fan Arts">
+    <div class="section-header">
+      <h2 class="section-title">Fan Arts</h2>
+      <p class="section-desc">Love letters to the stories and worlds that inspire my own creation.</p>
+    </div>
+    <div class="gallery-grid" id="grid-fanarts">
+      <div class="gallery-empty"><p>Artwork coming soon ✦</p></div>
+    </div>
+  </section>
+
+</main>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Artwork viewer" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
+  <button class="lightbox-prev" onclick="lightboxNav(-1)" aria-label="Previous">&#8592;</button>
+  <button class="lightbox-next" onclick="lightboxNav(1)" aria-label="Next">&#8594;</button>
+  <div class="lightbox-inner">
+    <img class="lightbox-img" id="lightbox-img" src="" alt="">
+    <div class="lightbox-caption">
+      <p class="lightbox-title" id="lightbox-title"></p>
+      <p class="lightbox-meta" id="lightbox-meta"></p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p class="footer-name">aswin draws</p>
+  <a href="https://instagram.com/aswin_draws" target="_blank" rel="noopener" class="footer-insta" aria-label="Instagram @aswin_draws">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+    @aswin_draws
+  </a>
+  <p class="footer-copy">© 2024 Aswin · All artwork original unless noted · Made with love</p>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/gallery.js"></script>
+</body>
+</html>
